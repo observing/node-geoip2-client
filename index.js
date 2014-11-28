@@ -41,7 +41,7 @@ GeoIp2Client.prototype.get = function get(ip, done) {
     })
   }, function resolved(error, response, result) {
     if (error || response.statusCode !== 200 || result.code === 'InternalError')  {
-      return done(error || result.message || new Error('Failed to query IP'));
+      return done(error || new Error(result.message || 'Failed to query IP'));
     }
 
     done(null, result);
