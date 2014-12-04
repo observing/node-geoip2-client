@@ -19,7 +19,9 @@ var GeoIp2Client = module.exports = function GeoIp2Client(options) {
   this.options.timeout = this.options.timeout || 5E3;
   this.options.hostname = this.options.hostname || 'localhost';
   this.options.protocol = this.options.protocol || 'http';
-  this.options.host = this.options.host || 'localhost:8082';
+  this.options.host = this.options.host || (
+    this.options.hostname + ':' + this.options.port
+  );
 
   debug('created new GeoIP2 client');
 };
@@ -45,10 +47,9 @@ GeoIp2Client.prototype.get = function get(ip, done) {
   //
   // Do a GET request to the generated url.
   //
-  request({
-    method: 'GET',
-    json: true,
+  request.get({
     timeout: this.options.timeout,
+    json: true,
     uri: uri
   }, function resolved(error, response, result) {
     if (error || response.statusCode !== 200 || result.code === 'InternalError')  {
