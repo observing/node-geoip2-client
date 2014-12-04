@@ -19,6 +19,8 @@ var GeoIp2Client = module.exports = function GeoIp2Client(options) {
   this.options.timeout = this.options.timeout || 5E3;
   this.options.hostname = this.options.hostname || 'localhost';
   this.options.protocol = this.options.protocol || 'http';
+
+  debug('Created new GeoIP2 client');
 };
 
 /**
@@ -29,19 +31,29 @@ var GeoIp2Client = module.exports = function GeoIp2Client(options) {
  * @api public
  */
 GeoIp2Client.prototype.get = function get(ip, done) {
+  var url = url.format({
+    protocol: this.options.protocol,
+    hostname: this.options.hostname,
+    port: this.options.port,
+    pathname: ip
+  });
+
+  debug('GET data from GeoIP2 via %s', url);
+
+  //
+  // Do a GET request to the generated url.
+  //
   request({
     method: 'GET',
     json: true,
     timeout: this.options.timeout,
-    uri: url.format({
-      protocol: this.options.protocol,
-      hostname: this.options.hostname,
-      port: this.options.port,
-      pathname: ip
-    })
+    url: url
   }, function resolved(error, response, result) {
     if (error || response.statusCode !== 200 || result.code === 'InternalError')  {
-      return done(error || new Error(result.message || 'Failed to query IP'));
+      error = error || new Error(result.message || 'Failed to query IP');
+      debug('Failed to GET data for IP: %s', error.message);
+
+      return done(error);
     }
 
     done(null, result);
