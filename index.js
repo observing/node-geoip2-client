@@ -31,14 +31,14 @@ var GeoIp2Client = module.exports = function GeoIp2Client(options) {
  * @api public
  */
 GeoIp2Client.prototype.get = function get(ip, done) {
-  var url = url.format({
+  var uri = url.format({
     protocol: this.options.protocol,
     hostname: this.options.hostname,
     port: this.options.port,
     pathname: ip
   });
 
-  debug('GET data from GeoIP2 via %s', url);
+  debug('GET data from GeoIP2 via %s', uri);
 
   //
   // Do a GET request to the generated url.
@@ -47,7 +47,7 @@ GeoIp2Client.prototype.get = function get(ip, done) {
     method: 'GET',
     json: true,
     timeout: this.options.timeout,
-    url: url
+    uri: uri
   }, function resolved(error, response, result) {
     if (error || response.statusCode !== 200 || result.code === 'InternalError')  {
       error = error || new Error(result.message || 'Failed to query IP');
