@@ -1,8 +1,11 @@
-# node-geoip2-client [![Build Status][status]](https://travis-ci.org/observing/node-geoip2-client) [![NPM version][npmimgurl]](http://npmjs.org/package/node-geoip2-client) [![Coverage Status][coverage]](http://coveralls.io/r/observing/node-geoip2-client?branch=master)
+# node-geoip2-client
 
-[status]: https://travis-ci.org/observing/node-geoip2-client.png?branch=master
-[npmimgurl]: https://badge.fury.io/js/node-geoip2-client.png
-[coverage]: http://coveralls.io/repos/observing/node-geoip2-client/badge.png?branch=master
+[![Version npm][version]](http://browsenpm.org/package/node-geoip2-client)[![Build Status][build]](https://travis-ci.org/observing/node-geoip2-client)[![Dependencies][david]](https://david-dm.org/observing/node-geoip2-client)[![Coverage Status][cover]](https://coveralls.io/r/observing/node-geoip2-client?branch=master)
+
+[version]: http://img.shields.io/npm/v/node-geoip2-client.svg?style=flat-square
+[build]: http://img.shields.io/travis/observing/node-geoip2-client/master.svg?style=flat-square
+[david]: https://img.shields.io/david/observing/node-geoip2-client.svg?style=flat-square
+[cover]: http://img.shields.io/coveralls/observing/node-geoip2-client/master.svg?style=flat-square
 
 Node.js client for its Restify server counterpart: node-geoip2-api. This
 module is best used in conjunction with its counterpart. It prevents
