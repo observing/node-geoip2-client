@@ -1,6 +1,6 @@
 {
   "name": "node-geoip2-client",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Node.js client for its Restify server counterpart node-geoip2-api",
   "main": "index.js",
   "dependencies": {
@@ -9,12 +9,16 @@
   },
   "devDependencies": {
     "chai": "1.10.x",
+    "istanbul": "0.3.x",
     "mocha": "2.0.x",
+    "mocha-lcov-reporter": "0.0.x",
+    "pre-commit": "0.0.x",
     "sinon": "1.12.x",
-    "sinon-chai": "^2.6.0"
+    "sinon-chai": "2.6.x"
   },
   "scripts": {
-    "test": "mocha $(find test -name '*.test.js')"
+    "test": "NODE_ENV=test mocha $(find test -name '*.test.js')",
+    "coverage": "NODE_ENV=test istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
