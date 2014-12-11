@@ -2,7 +2,7 @@
 
 var url = require('url')
   , request = require('request')
-  , debug = require('diagnostics')('geoip2');
+  , debug = require('diagnostics')('geoip2-client');
 
 /**
  * GeoIp2APIClient constructor.
