@@ -7,9 +7,11 @@
 [david]: https://img.shields.io/david/observing/node-geoip2-client.svg?style=flat-square
 [cover]: http://img.shields.io/coveralls/observing/node-geoip2-client/master.svg?style=flat-square
 
-Node.js client for its Restify server counterpart: node-geoip2-api. This
+Node.js client for its Restify server counterpart: [node-geoip2-api]. This
 module is best used in conjunction with its counterpart. It prevents
 the developer from constructing API requests manually.
+
+[node-geoip2-api]: https://github.com/observing/node-geoip2-api
 
 ## Installation
 
@@ -33,7 +35,7 @@ var Client = require('node-geoip2-client')
 
 ### API
 
-The client has several methods available to query the MaxMind GeoIP3 database.
+The client has several methods available to query the MaxMind GeoIP2 database.
 
 #### client.get
 
