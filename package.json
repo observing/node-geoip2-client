@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "diagnostics": "~1.0.1",
-    "request": "~2.78.0"
+    "request": "~2.83.0"
   },
   "devDependencies": {
     "chai": "~3.5.0",
