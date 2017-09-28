@@ -14,7 +14,7 @@
     "mocha-lcov-reporter": "~1.2.0",
     "pre-commit": "~1.2.0",
     "sinon": "~1.17.6",
-    "sinon-chai": "~2.8.0"
+    "sinon-chai": "~2.14.0"
   },
   "scripts": {
     "test": "NODE_ENV=test mocha $(find test -name '*.test.js')",
