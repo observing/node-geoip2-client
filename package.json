@@ -4,7 +4,7 @@
   "description": "Node.js client for its Restify server counterpart node-geoip2-api",
   "main": "index.js",
   "dependencies": {
-    "diagnostics": "~1.0.1",
+    "diagnostics": "~2.0.0",
     "request": "~2.78.0"
   },
   "devDependencies": {
